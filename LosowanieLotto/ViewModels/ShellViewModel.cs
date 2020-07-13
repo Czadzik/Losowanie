@@ -9,6 +9,26 @@ namespace LosowanieLotto.ViewModels
 {
     public class ShellViewModel : Screen
     {
-        
+        private int _drawNumber = 2;
+
+        public int DrawNumber
+        {
+            get { return _drawNumber; }
+            set
+            {
+                _drawNumber = value;
+                NotifyOfPropertyChange(() =>DrawNumber );
+            }
+        }
+
+        public bool CanStartDrawNumber(int drawNumber)
+        {
+
+            return true;
+        }
+        public void startDrawNumber( )
+        {
+            
+        }
     }
 }

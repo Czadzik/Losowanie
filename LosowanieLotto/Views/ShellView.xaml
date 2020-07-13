@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+          
+        </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="20"></ColumnDefinition>
+         <ColumnDefinition Width="Auto"></ColumnDefinition>
+         <ColumnDefinition Width="Auto"></ColumnDefinition>
+         <ColumnDefinition Width="Auto"></ColumnDefinition>
+         <ColumnDefinition Width="Auto"></ColumnDefinition>
+         <ColumnDefinition Width="*"></ColumnDefinition>
+         <ColumnDefinition Width="20"></ColumnDefinition>
+     </Grid.ColumnDefinitions>
+        <!--Row 1-->
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Wylosowana Liczba: " > </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DrawNumber, Mode=OneWay}"></TextBlock>
+        <Button x:Name="startDrawNumber" Grid.Row="1" Grid.Column="3" Content="Wylosuj liczbę"></Button>
     </Grid>
 </Window>
