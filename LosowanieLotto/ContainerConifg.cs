@@ -13,7 +13,7 @@ namespace LosowanieLotto
         public static IContainer Configuer()
         {
             var builder=new ContainerBuilder();
-            builder.RegisterType<DrawNumbers>().As<IUserNumber>();
+            builder.RegisterType<DrawNumbers>().As<IDrawNumbers>();
             return builder.Build();
         }
     }
