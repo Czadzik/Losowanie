@@ -11,13 +11,13 @@ namespace LosowanieLotto.ViewModels
     {
         private int _drawNumber = 2;
 
-        public int DrawNumber
+        public int DrawNumber1
         {
             get { return _drawNumber; }
             set
             {
                 _drawNumber = value;
-                NotifyOfPropertyChange(() =>DrawNumber );
+                NotifyOfPropertyChange(() =>DrawNumber1 );
             }
         }
 
