@@ -23,5 +23,7 @@ namespace LosowanieLotto.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

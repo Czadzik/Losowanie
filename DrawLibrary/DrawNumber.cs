@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace LosowanieLotto
 {
-    public interface IDrawNumbers
+    public interface IDrawNumber
     {
-        void drawNumbers(ref List<int> ListOfNumbers);
+        List<int> drawNumbers( List<int> ListOfNumbers);
         bool[] checkNumbers(List<int> UserListOFNumbers, List<int> DrawListOfNumbers);
     }
 
-    public class DrawNumbers : IDrawNumbers
+    public class DrawNumber : IDrawNumber
     {
-        List<int> listOfUserNumbers =new List<int>(6);
-        List<int> listOfDrawNumbers =new List<int>(6);
 
-        public void drawNumbers(ref List<int> ListOfNumbers)
+        public List<int> drawNumbers( List<int> ListOfNumbers)
         {
             Random random= new Random();
 
@@ -26,6 +24,8 @@ namespace LosowanieLotto
                 ListOfNumbers.Add(random.Next(1, 49));
 
             }
+
+            return ListOfNumbers;
         }
        
 

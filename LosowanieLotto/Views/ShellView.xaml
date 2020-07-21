@@ -40,7 +40,7 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Wylosowana Liczba: " > </TextBlock>
         <!-- <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DrawNumber, Mode=OneWay}"></TextBlock> -->
         <!-- <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DrawNumber, Mode=OneWay}"></TextBlock> -->
-        <TextBlock Grid.Row="1" Grid.Column="2"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber1, Mode=OneWay}></TextBlock>
-        <Button x:Name="startDrawNumber" Grid.Row="1" Grid.Column="8" Content="Wylosuj liczbę"></Button>
+        <TextBlock Grid.Row="1" Grid.Column="2"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber1, Mode=OneWay}"></TextBlock>
+        <Button x:Name="startDrawNumber" Grid.Row="1" Grid.Column="8"  Content="Wylosuj liczbę"></Button>
     </Grid>
 </Window>
