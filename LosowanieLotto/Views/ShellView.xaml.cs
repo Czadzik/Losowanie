@@ -22,6 +22,8 @@ namespace LosowanieLotto.Views
         public ShellView()
         {
             InitializeComponent();
+            
+           
         }
 
        

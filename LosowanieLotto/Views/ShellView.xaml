@@ -1,51 +1,59 @@
-﻿<Window x:Class="LosowanieLotto.Views.ShellView"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LosowanieLotto.Views"
+        xmlns:cal="http://www.caliburnproject.org" x:Class="LosowanieLotto.Views.ShellView"
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-          
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+
         </Grid.RowDefinitions>
-     <Grid.ColumnDefinitions>
-         <ColumnDefinition Width="20"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="Auto"></ColumnDefinition>
-         <ColumnDefinition Width="*"></ColumnDefinition>
-         <ColumnDefinition Width="20"></ColumnDefinition>
-     </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
         <!--Row 1-->
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Wylosowana Liczba: " > </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Wylosowana Liczba: " />
         <!-- <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DrawNumber, Mode=OneWay}"></TextBlock> -->
         <!-- <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DrawNumber, Mode=OneWay}"></TextBlock> -->
-        <TextBlock Grid.Row="1" Grid.Column="2"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber0, Mode=OneWay}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="3"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber1, Mode=OneWay}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="4"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber2, Mode=OneWay}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="5"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber3, Mode=OneWay}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="6"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber4, Mode=OneWay}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="7"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber5, Mode=OneWay}"></TextBlock>
-        <Button x:Name="startDrawNumber" Grid.Row="1" Grid.Column="8"  Content="Wylosuj liczbę"></Button>
+        <TextBlock Grid.Row="1" Grid.Column="2"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber0, Mode=OneWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="3"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber1, Mode=OneWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="4"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber2, Mode=OneWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="5"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber3, Mode=OneWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="6"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber4, Mode=OneWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="7"  MinHeight="20" MinWidth="20" Background="Aqua" Text="{Binding DrawNumber5, Mode=OneWay}"/>
+        <Button x:Name="StartDrawUserNumber" Grid.Row="1" Grid.Column="8"  Content="Wylosuj liczbę" cal:Bind.AtDesignTime="True"/>
+        <!-- Row 2-->
+        <Button x:Name="StartDrawNumber" Grid.Row="2" Grid.Column="8"  Content="Wylosuj Raz"/>
+        <!--Row 3 -->
+        <ScrollViewer Name="ScrollViewer" Height="239" VerticalScrollBarVisibility="Auto" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <TextBox x:Name="ScrollBox" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding ResultOfDraw, Mode=OneWay}"></TextBox>
+      </ScrollViewer>
+
     </Grid>
 </Window>
