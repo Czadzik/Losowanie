@@ -17,11 +17,6 @@ namespace LosowanieLotto
             builder.RegisterType<DrawNumber>().As<IDrawNumber>();
             builder.RegisterType<BusinessLogic>().As<IBuisnessLogic>();
             builder.RegisterType<Application>().As<IApplication>();
-           
-          
-
-           
-      
             return builder.Build();
         }
     }

@@ -9,23 +9,23 @@ namespace LosowanieLotto
 {
     public interface IDrawNumber
     {
-        List<int> drawNumbers( List<int> ListOfNumbers);
+        List<int> drawNumbers(List<int> ListOFNumbers);
         bool[] checkNumbers(List<int> UserListOFNumbers, List<int> DrawListOfNumbers);
     }
 
     public class DrawNumber : IDrawNumber
     {
-
-        public List<int> drawNumbers( List<int> ListOfNumbers)
+   
+        public List<int> drawNumbers(List<int> ListOFNumbers)
         {
             Random random= new Random();
 
-            for (int i = 0; i <ListOfNumbers.Capacity; i++)
+            for (int i = 0; i < ListOFNumbers.Capacity; i++)
             {
-                ListOfNumbers.Add(random.Next(1, 49));
+                ListOFNumbers.Add(random.Next(1, 49));
 
             }
-            return ListOfNumbers;
+            return ListOFNumbers;
         }
        
 
@@ -42,6 +42,7 @@ namespace LosowanieLotto
                         UserListOFNumbers.RemoveAt(i);
                     }
                 }   
+                //TODO Poprawić zeby nie kasowało tablicy
             }
             return shoot;
         }

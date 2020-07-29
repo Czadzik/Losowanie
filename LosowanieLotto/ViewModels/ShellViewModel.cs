@@ -13,7 +13,8 @@ namespace LosowanieLotto.ViewModels
     public class ShellViewModel : Screen
     {
         List<int> _listOfUserNumbers = new List<int>(6);
-        List<int> _listOfDrawNumbers = new List<int>(6);
+        List<int> _listOfDrawNumbers = new List<int>(6); 
+        bool [] _arryOfCheck = new bool[6];
 
         private int _drawNumber0;
         private int _drawNumber1;
@@ -23,6 +24,7 @@ namespace LosowanieLotto.ViewModels
         private int _drawNumber5;
         private bool _canDrawNumber=false;
         private string _resultOfDraw;
+        private string _resultOfCheck;
         public int DrawNumber0
         {
             get { return _drawNumber0; }
@@ -88,33 +90,58 @@ namespace LosowanieLotto.ViewModels
             get { return _canDrawNumber;}
 
         }
-      
+
         public string ResultOfDraw
         {
-            get { return _resultOfDraw;}
+            get { return _resultOfDraw; }
             set
             {
                 _resultOfDraw = value;
 
-          
+
                 NotifyOfPropertyChange((() => ResultOfDraw));
             }
-            //TODO AutoScroll 
+          
+        }
+
+        public string ResultOfCheck
+        {
+            get { return _resultOfCheck; }
+            set
+            {
+                _resultOfCheck = value;
+
+
+                NotifyOfPropertyChange((() => ResultOfCheck));
+            }
+            
         }
 
         public void StartDrawNumber(int drawNumber0)
         {
             var container = ContainerConifg.Configuer();
+
+            
             using (var scope = container.BeginLifetimeScope())
             {
                 var app = scope.Resolve<IApplication>();
 
-                _listOfDrawNumbers = app.RunDrawNumberForUser();
+                _listOfDrawNumbers.Clear();
+                _listOfDrawNumbers = app.RunDrawNumber(_listOfDrawNumbers);
+
+
+                _arryOfCheck = app.checkNumbers(_listOfDrawNumbers, _listOfUserNumbers);
+
             }
 
             ResultOfDraw += _listOfDrawNumbers[0].ToString()+" "+ _listOfDrawNumbers[1].ToString()+ " " + _listOfDrawNumbers[2].ToString()+ " " +
                             _listOfDrawNumbers[3].ToString()+ " " + _listOfDrawNumbers[4].ToString()+ " " + _listOfDrawNumbers[5].ToString()+"\n";
-            
+
+            ResultOfCheck = _arryOfCheck[0].ToString() + " " + _arryOfCheck[1].ToString() + " " +
+                            _arryOfCheck[2].ToString() + " " +
+                            _arryOfCheck[3].ToString() + " " + _arryOfCheck[4].ToString() + " " +
+                            _arryOfCheck[5].ToString();
+        
         }
    
         public void StartDrawUserNumber()
@@ -123,8 +150,8 @@ namespace LosowanieLotto.ViewModels
             using (var scope = container.BeginLifetimeScope())
             {
                 var app = scope.Resolve<IApplication>();
-
-                _listOfUserNumbers = app.RunDrawNumberForUser();
+              //  _listOfUserNumbers.Clear();
+                _listOfUserNumbers = app.RunDrawNumberForUser(_listOfUserNumbers);
 
                 DrawNumber0 = _listOfUserNumbers[0];
                 DrawNumber1 = _listOfUserNumbers[1];

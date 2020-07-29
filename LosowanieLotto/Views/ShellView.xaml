@@ -51,9 +51,13 @@
         <!-- Row 2-->
         <Button x:Name="StartDrawNumber" Grid.Row="2" Grid.Column="8"  Content="Wylosuj Raz"/>
         <!--Row 3 -->
-        <ScrollViewer Name="ScrollViewer" Height="239" VerticalScrollBarVisibility="Auto" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="3">
+        <Button x:Name="DrawAndWin" Grid.Row="3" Grid.Column="8"  Content="Traf Mi 6" ></Button>
+        <!--Row 4 -->
+        <ScrollViewer Name="ScrollViewer" Height="239" VerticalScrollBarVisibility="Auto" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="3">
             <TextBox x:Name="ScrollBox" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding ResultOfDraw, Mode=OneWay}"></TextBox>
       </ScrollViewer>
 
+
+        <TextBox x:Name="WinBox" Grid.Row="5" Grid.Column="9" MinWidth="400" MinHeight="50" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding ResultOfCheck, Mode=OneWay}"></TextBox>
     </Grid>
 </Window>

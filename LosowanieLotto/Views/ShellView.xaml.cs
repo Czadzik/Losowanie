@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LosowanieLotto.Views
 {
@@ -22,8 +23,19 @@ namespace LosowanieLotto.Views
         public ShellView()
         {
             InitializeComponent();
-            
-           
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Tick += ((sender, e) =>
+            {
+                ScrollBox.Height += 10;
+
+                if (ScrollViewer.VerticalOffset == ScrollViewer.ScrollableHeight)
+                {
+                    ScrollViewer.ScrollToEnd();
+                }
+            });
+            timer.Start();
         }
 
        

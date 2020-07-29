@@ -7,31 +7,37 @@ namespace DrawLibrary
 {
     public interface IBuisnessLogic
     {
-        List<int> drawNumbersForUser();
-      // void DrawOnce();
+        List<int> drawNumbersForUser(List<int> listOfUserNumbers);
+
+        List<int> drawNumbersForWin(List<int> listOfUserNumbers);
+         bool[] CheckNumber(List<int> listOfUserNumbers, List<int> listOfNumbersForWin);
     }
 
   public  class BusinessLogic : IBuisnessLogic
     {
         private IDrawNumber _drawNumber;
-        List<int> listOfUserNumbers = new List<int>(6);
-        List<int> listOfDrawNumbers = new List<int>(6);
+
+
         private bool[] howManyShoots;
         public BusinessLogic(IDrawNumber drawNumber)
         {
             _drawNumber = drawNumber;
         }
 
-        public List<int> drawNumbersForUser()
+        public List<int> drawNumbersForUser(List<int> listOfUserNumbers )
         {
-            return _drawNumber.drawNumbers( listOfUserNumbers);
+            return _drawNumber.drawNumbers(listOfUserNumbers);
+         
         }
-        public void DrawOnce()
+        public List<int> drawNumbersForWin(List<int> drawNumbersForUser)
         {
+            return _drawNumber.drawNumbers(drawNumbersForUser);
     
-            _drawNumber.drawNumbers(listOfDrawNumbers);
-           howManyShoots=_drawNumber.checkNumbers(listOfUserNumbers, listOfDrawNumbers);
-
+        }
+        public bool [] CheckNumber(List<int> listOfUserNumberss, List<int> listOfNumbersForWinn)
+        {
+            howManyShoots=_drawNumber.checkNumbers(listOfUserNumberss, listOfNumbersForWinn);
+           return howManyShoots;
         }
         
     }
